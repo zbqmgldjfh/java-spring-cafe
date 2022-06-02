@@ -30,13 +30,13 @@ public class UserService {
         return repository.findByUserId(userId).isPresent();
     }
 
-    public List<User> findUsers() {
-        return repository.findAll();
-    }
-
     public User findUserById(String userId) {
         return repository.findByUserId(userId)
                 .orElseThrow(() -> new NotFoundException(USER_NOT_FOUND_EXCEPTION));
+    }
+
+    public List<User> findUsers() {
+        return repository.findAll();
     }
 
     public boolean userUpdate(User user) {
